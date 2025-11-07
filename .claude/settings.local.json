@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python test_tz_debug.py:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

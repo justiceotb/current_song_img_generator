@@ -313,9 +313,17 @@ class ImageGenerator:
             # Apply color mode conversion
             img = self._apply_color_mode(img)
 
-            # Save the image
+            # Save the PNG image
             img.save(output_path)
             logger.info(f"Image saved to {output_path}")
+
+            # Save raw format (raw pixel data)
+            raw_output_path = output_path.rsplit('.', 1)[0] + '.raw'
+            raw_data = img.tobytes()
+            with open(raw_output_path, 'wb') as f:
+                f.write(raw_data)
+            logger.info(f"Raw image data saved to {raw_output_path}")
+
             return True
 
         except Exception as e:
